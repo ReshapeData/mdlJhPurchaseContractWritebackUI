@@ -1,4 +1,4 @@
-#' demo生成器界面
+#' 按纽生成生成器界面
 #'
 #' @param colTitles  主页标题
 #' @param widthRates 左右比例
@@ -12,19 +12,19 @@
 #' @export
 #'
 #' @examples
-#' dateUI()
-dateUI <- function(tabTitle ='日期',
-                   colTitles =c('操作区域','预览区域','显示区域'),
-                   widthRates =c(4,8,12),
-                   func_left = dateUI_left,
-                   func_right =dateUI_right,
-                   func_bottom = dateUI_bottom
+#' writebackUI()
+writebackUI <- function(tabTitle ='反写采购合同',
+                     colTitles =c('操作区域','','显示区域'),
+                     widthRates =c(8,4,12),
+                     func_left = writebackUI_left,
+                     func_right =writebackUI_right,
+                     func_bottom = writebackUI_bottom
 ) {
-
+  
   #三栏式设置，可以复制
   res = tsui::uiGen3(tabTitle = tabTitle,colTitles =colTitles,widthRates = widthRates,func_left = func_left,func_right = func_right,func_bottom = func_bottom )
   return(res)
-
+  
 }
 
 
@@ -37,17 +37,16 @@ dateUI <- function(tabTitle ='日期',
 #' @export
 #'
 #' @examples
-#' dateUI_left()
-dateUI_left <- function() {
-
-
+#' writebackUI_left()
+writebackUI_left <- function() {
+  
+  
   res <- tagList(
-    tsui::mdl_date(id = 'date_orderDate',label = '订单日期'),
-    shiny::actionButton(inputId = 'btn_dateShow',label = '显示日期'),
-    shiny::verbatimTextOutput(outputId = 'date_res')
+    shiny::actionButton(inputId = 'btn_purchaseContract_update',label = '反写采购合同')
+    
   )
   return(res)
-
+  
 }
 
 
@@ -57,15 +56,13 @@ dateUI_left <- function() {
 #' @export
 #'
 #' @examples
-#' dateUI_bottom()
-dateUI_right <- function() {
+#' writebackUI_bottom()
+writebackUI_right <- function() {
   res <- tagList(
-
-   tsui::mdl_dateRange(id = 'dateRange_orderDates',label = '订单日期范围')
-
+    
   )
   return(res)
-
+  
 }
 
 
@@ -75,12 +72,11 @@ dateUI_right <- function() {
 #' @export
 #'
 #' @examples
-#' dateUI_bottom()
-dateUI_bottom <- function() {
+#' writebackUI_bottom()
+writebackUI_bottom <- function() {
   res <- tagList(
-
-
+    
   )
   return(res)
-
+  
 }
